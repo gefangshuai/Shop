@@ -101,18 +101,9 @@
 	-->
 	<body class="">
 		
-		<!-- RIBBON -->
-		<div id="ribbon">			
-			<!-- breadcrumb -->
-			<ol class="breadcrumb">
-				<li>商品管理</li><li>商品列表</li>
-			</ol>
-			<!-- end breadcrumb -->
-		</div>
-		<!-- END RIBBON -->
-
+		
 		<!-- MAIN CONTENT -->
-		<div id="content" style="padding:2px;">
+		<div id="content">
 
 			<!-- widget grid -->
 			<section id="widget-grid" class="">
@@ -135,6 +126,7 @@
 					<!-- WIDGET END -->
 
 				</div>
+
 				<!-- end row -->
 
 			</section>
@@ -229,23 +221,20 @@
 				pageSetUp();				
 
 				jQuery("#jqgrid").jqGrid({
-					url:'/product/getProduct',
+					url:'/brand/getBrand',
 					datatype: "json",
 					mtype: "POST",
 					//data : jqgrid_data,
 					//datatype : "local",
 					height : 'auto',
-					colNames : ['productSn','name', 'price', 'isMarketable', 'isBest', 'isNew', 'isHot', 'store', 'modifyDate'],
+					colNames : ['Actions', 'id', 'createDate', 'name', 'url', 'orderList'],
 					colModel : [
-						{ name : 'productSn', index : 'productSn', editable : true }, 
-						{ name : 'name', index : 'name', editable : true },
-						{ name : 'price', index : 'price', editable : true }, 
-						{ name : 'isMarketable', index : 'isMarketable', editable : true }, 
-						{ name : 'isBest', index : 'isBest',  editable : true },
-						{ name : 'isNew', index : 'isNew',  editable : true },
-						{ name : 'isHot', index : 'isHot', editable : true },
-						{ name : 'store', index : 'store', editable : true },
-						{ name : 'modifyDate', index : 'modifyDate', align : "right", editable : true }
+						{ name : 'act', index : 'act', sortable : false }, 
+						{ name : 'id', index : 'id' }, 
+						{ name : 'createDate', index : 'createDate', editable : true }, 
+						{ name : 'name', index : 'name', editable : true }, 
+						{ name : 'url', index : 'url', align : "right", editable : true }, 
+						{ name : 'orderList', index : 'orderList', align : "right", editable : true }
 					],
 					rowNum : 10,
 					rowList : [10, 20, 30],
@@ -255,7 +244,7 @@
 					viewrecords : true,
 					sortorder : "asc",					
 					//editurl : "dummy.html",
-					caption : "产品列表",
+					caption : "SmartAdmin jQgrid Skin",
 					multiselect : true,
 					autowidth : true,
 

@@ -14,6 +14,7 @@ import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 
 import com.jfinal.aop.Before;
+import com.jfinal.aop.Clear;
 import com.jfinal.kit.StrKit;
 import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.upload.UploadFile;
@@ -63,6 +64,19 @@ public class ProductController extends BaseAdminController<Product>{
 		render("/admin/product_input.html");
 	}
 		
+	public void getProduct() {
+		String select = "select * ";
+		String sqlExceptSelect = " from product ";
+		
+		Page<Product> product = Product.dao.paginate(1, 20, select, sqlExceptSelect);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("page", product.getPageNumber());
+		map.put("total", product.getTotalPage()); 
+		map.put("records", product.getTotalRow());
+		map.put("rows", product.getList());		
+		renderJson(map);
+	}
+	
 	public void findProduct() {
 		// 获取请求次数
 		int draw = getParaToInt("draw", 0);

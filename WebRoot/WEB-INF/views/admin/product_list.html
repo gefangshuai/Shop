@@ -235,22 +235,22 @@
 					//data : jqgrid_data,
 					//datatype : "local",
 					height : 'auto',
-					colNames : ['productSn','name', 'price', 'isMarketable', 'isBest', 'isNew', 'isHot', 'store', 'modifyDate'],
+					colNames : ['产品编码','产品名称', '单价', '是否上架', '是否精品', '是否最新', '是否最热', '库存', '修改日期'],
 					colModel : [
-						{ name : 'productSn', index : 'productSn', editable : true }, 
-						{ name : 'name', index : 'name', editable : true },
-						{ name : 'price', index : 'price', editable : true }, 
-						{ name : 'isMarketable', index : 'isMarketable', editable : true }, 
-						{ name : 'isBest', index : 'isBest',  editable : true },
-						{ name : 'isNew', index : 'isNew',  editable : true },
-						{ name : 'isHot', index : 'isHot', editable : true },
-						{ name : 'store', index : 'store', editable : true },
-						{ name : 'modifyDate', index : 'modifyDate', align : "right", editable : true }
+						{ name : 'productSn', index : 'productSn', editable : true ,width : 120}, 
+						{ name : 'name', index : 'name', editable : true ,width : 400},
+						{ name : 'price', index : 'price', editable : true ,align : "right", width : 50}, 
+						{ name : 'isMarketable', index : 'isMarketable', editable : true ,width : 50}, 
+						{ name : 'isBest', index : 'isBest',  editable : true ,width : 50},
+						{ name : 'isNew', index : 'isNew',  editable : true ,width : 50},
+						{ name : 'isHot', index : 'isHot', editable : true ,width : 50},
+						{ name : 'store', index : 'store', editable : true ,width : 50},
+						{ name : 'modifyDate', index : 'modifyDate', editable : true ,width : 100}
 					],
 					rowNum : 10,
 					rowList : [10, 20, 30],
 					pager : '#pjqgrid',
-					sortname : 'id',
+					sortname : 'name',
 					toolbarfilter : true,
 					viewrecords : true,
 					sortorder : "asc",					
@@ -258,13 +258,21 @@
 					caption : "产品列表",
 					multiselect : true,
 					autowidth : true,
+					//toolbar : [ true, "top" ]
 
 				});
+
 				jQuery("#jqgrid").jqGrid('navGrid', "#pjqgrid", {
 					edit : false,
 					add : false,
 					del : true
 				});
+
+				/*$("#jqgrid").append("<input type='button' value='Click Me' style='height:20px;font-size:-3'/>");
+				  $("input", "#jqgrid").click(function() {
+				    alert("Hi! I'm added button at this toolbar of top");
+				 });*/
+
 				jQuery("#jqgrid").jqGrid('inlineNav', "#pjqgrid");
 				/* Add tooltips */
 				$('.navtable .ui-pg-button').tooltip({
@@ -276,6 +284,7 @@
 					s = jQuery("#jqgrid").jqGrid('getGridParam', 'selarrrow');
 					alert(s);
 				});
+
 				jQuery("#m1s").click(function() {
 					jQuery("#jqgrid").jqGrid('setSelection', "13");
 				});

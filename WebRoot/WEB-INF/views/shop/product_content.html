@@ -252,10 +252,10 @@ $().ready( function() {
 						<%}%>
 					</table>
 				</div>
-				<div class="tabContent productDesign">
-					<%for(list in product.productImageList!){%>
-								<img src="${base}${list.smallProductImagePath}" />
-					<%}%>
+				<div class="tabContent productDesign" style="width: 800px;">
+					<iframe src="${base}/shop/product/canvas/${product.id}" width="100%" height="700"  scrolling="no"> 
+					
+					</iframe> 
 				</div>
 			</div>
 		</div>

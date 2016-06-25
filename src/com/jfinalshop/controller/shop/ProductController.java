@@ -33,6 +33,11 @@ public class ProductController extends Controller {
 	private List<ProductCategory> pathList;
 	private Page<Product> pager;
 	
+	public void canvas(){
+		String prodId = getPara();
+		setAttr("product", Product.dao.findById(prodId));
+		render("/shop/canvas.html");
+	}
 	// 列表
 	public void list() {
 		String productCategory_id = getPara("id","");

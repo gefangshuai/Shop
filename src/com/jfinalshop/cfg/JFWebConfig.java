@@ -15,6 +15,7 @@ import com.jfinal.ext.route.AutoBindRoutes;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.activerecord.dialect.MysqlDialect;
 import com.jfinal.plugin.druid.DruidPlugin;
+import com.jfinalshop.interceptor.NavigationInterceptor;
 import com.jfinalshop.util.SerialNumberUtil;
 
 public class JFWebConfig extends JFinalConfig{
@@ -73,7 +74,9 @@ public class JFWebConfig extends JFinalConfig{
 	}
 
 	@Override
-	public void configInterceptor(Interceptors me) {}
+	public void configInterceptor(Interceptors me) {
+		me.add(new NavigationInterceptor());
+	}
 
 	@Override
 	public void configHandler(Handlers me) {}

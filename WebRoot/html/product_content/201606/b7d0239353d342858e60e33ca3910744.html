@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>订单查询 - Powered By JFinalShop</title>
+<title>测试商品 - Powered By JFinalShop</title>
 <meta name="Author" content="JFinalShop Team" />
 <meta name="Copyright" content="JFinalShop" />
-<meta name="keywords" content="订单" />
-<meta name="description" content="订单的状态" />
+<meta name="keywords" content="测试" />
+<meta name="description" content="这是一个测试商品，我就是用来测试的" />
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <link href="/template/common/css/base.css" rel="stylesheet" type="text/css" />
 <link href="/template/common/css/jquery.datepicker.css" rel="stylesheet" type="text/css" />
@@ -38,32 +38,36 @@
 <![endif]-->
 <script type="text/javascript" src="/template/common/js/base.js"></script><link href="/template/shop/css/login.css" rel="stylesheet" type="text/css" />
 <link href="/template/shop/css/register.css" rel="stylesheet" type="text/css" />
-<link href="/template/shop/css/article.css" rel="stylesheet" type="text/css" />
-<link href="/template/shop/css/article_content.css" rel="stylesheet" type="text/css" />
+<link href="/template/shop/css/product.css" rel="stylesheet" type="text/css" />
+<link href="/template/shop/css/product_content.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="/template/shop/js/login.js"></script>
 <script type="text/javascript" src="/template/shop/js/register.js"></script>
-<script type="text/javascript" src="/template/shop/js/article.js"></script>
+<script type="text/javascript" src="/template/shop/js/product.js"></script>
 <script type="text/javascript">
 $().ready( function() {
+	
+	// 添加商品浏览记录
+	$.addProductHistory("测试商品", "/html/product_content/201606/b7d0239353d342858e60e33ca3910744.html");
 
-	$hits = $("#hits");
-
-	// 统计文章点击数
-	$.ajax({
-		url: "/shop/article/ajaxCounter?id=402881882ba8753a012ba891884e0004",
-		dataType: "json",
-		async: false,
-		success: function(data) {
-			if (data.status == "success") {
-				$hits.text(data.hits);
-			}
-		}
-	});
-
-});
+})
 </script>
 </head>
-<body class="articleContent">
+<body class="productContent">
+	<div id="addCartItemTip" class="addCartItemTip">
+		<div class="top">
+			<div class="tipClose addCartItemTipClose"></div>
+		</div>
+		<div class="middle">
+			<p>
+				<span id="addCartItemTipMessageIcon">&nbsp;</span>
+				<span id="addCartItemTipMessage"></span>
+			</p>
+			<p id="addCartItemTipInfo" class="red"></p>
+			<input type="button" class="formButton tipClose" value="继续购物" hidefocus="true" />
+			<input type="button" class="formButton" onclick="location.href='/shop/cartItem/list'" value="进入购物车" hidefocus="true" />
+		</div>
+		<div class="bottom"></div>
+	</div>
 <script type="text/javascript" src="/template/shop/js/header.js"></script>
 <link href="/template/shop/css/header.css" rel="stylesheet" type="text/css" />
 <div class="header png">
@@ -119,65 +123,58 @@ $().ready( function() {
 	</div>
 </div>	<div class="body">
 		<div class="bodyLeft">
-			<div class="recommendArticle">
-				<div class="top">推荐文章</div>
+			<div class="productCategory">
+            	<div class="top">商品分类</div>
+            	<div class="middle clearfix">
+            		<ul class="menu">
+            				<li class="mainCategory">
+								<a href="/shop/product/list?id=c5910cfe886244c9b23bd0234d946c3e">厨房电器2</a>
+							</li>
+									<li>
+										<a href="/shop/product/list?id=2505aa1eda674d78a3325db74b0bfd72"><span class="icon">&nbsp;</span>电水壶</a>
+									</li>
+									<li>
+										<a href="/shop/product/list?id=3693519d7a81423082a8639f6cfb31ef"><span class="icon">&nbsp;</span>榨汁机</a>
+									</li>
+									<li>
+										<a href="/shop/product/list?id=a2a54141e9c04a20ac81d9b18b6e96ab"><span class="icon">&nbsp;</span>电陶炉</a>
+									</li>
+									<li>
+										<a href="/shop/product/list?id=28663da185934da0a4cf52784f771157"><span class="icon">&nbsp;</span>111</a>
+									</li>
+            				<li class="mainCategory">
+								<a href="/shop/product/list?id=0e3d1018956045ea8588796d321f7317">3C数码配件市场</a>
+							</li>
+									<li>
+										<a href="/shop/product/list?id=340f3673c9f340529a89398228a0cc87"><span class="icon">&nbsp;</span>移动电源</a>
+									</li>
+            				<li class="mainCategory">
+								<a href="/shop/product/list?id=2dcf75f487de4c7ea62bc181a0c28662">个人护理清洁</a>
+							</li>
+									<li>
+										<a href="/shop/product/list?id=a0060df8778447a2b2c636b04555f43b"><span class="icon">&nbsp;</span>电子美容仪</a>
+									</li>
+					</ul>
+            	</div>
+                <div class="bottom"></div>
+			</div>
+			<div class="blank"></div>
+			<div class="hotProduct">
+				<div class="top">热销排行</div>
 				<div class="middle clearfix">
 					<ul>
-							<li>
-									<span class="icon">&nbsp;</span><a href="/html/article_content/201010/5010509a555548939840a3103d3cea71.html" title="联系我们">联系我们</a>
-							</li>
-							<li>
-									<span class="icon">&nbsp;</span><a href="/html/article_content/201010/070088f2df794b26b03bdf022565f1f2.html" title="关于我们">关于我们</a>
-							</li>
-							<li>
-									<span class="icon">&nbsp;</span><a href="/html/article_content/201010/82c2ffe3f0234a6ba2aed4727a75a19a.html" title="发票制度说明">发票制度说明</a>
-							</li>
-							<li>
-									<span class="icon">&nbsp;</span><a href="/html/article_content/201010/cb4b35cc2fd14ddbb20b49d7637fab2f.html" title="常见问题">常见问题</a>
-							</li>
-							<li>
-									<span class="icon">&nbsp;</span><a href="/html/article_content/201010/50588403d9dd494c9035fa763e49e112.html" title="订单查询">订单查询</a>
-							</li>
-							<li>
-									<span class="icon">&nbsp;</span><a href="/html/article_content/201010/90eb7634990341909027a5e20245b3e1.html" title="网站制度">网站制度</a>
-							</li>
-							<li>
-									<span class="icon">&nbsp;</span><a href="/html/article_content/201010/9102600e47b7401b843ad3722e1e9b70.html" title="购物流程">购物流程</a>
+							<li class="number1">
+									<span class="icon">&nbsp;</span><a href="/html/product_content/201606/b7d0239353d342858e60e33ca3910744.html" title="测试商品">测试商品</a>
 							</li>
 					</ul>
 				</div>
 				<div class="bottom"></div>
 			</div>
 			<div class="blank"></div>
-			<div class="hotArticle">
-				<div class="top">热点文章</div>
+			<div class="productHistory">
+				<div class="top">浏览记录</div>
 				<div class="middle clearfix">
-					<ul>
-							<li class="number1">
-									<span class="icon">&nbsp;</span><a href="/html/article_content/201010/90eb7634990341909027a5e20245b3e1.html" title="网站制度">网站制度</a>
-							</li>
-							<li class="number2">
-									<span class="icon">&nbsp;</span><a href="/html/article_content/201010/070088f2df794b26b03bdf022565f1f2.html" title="关于我们">关于我们</a>
-							</li>
-							<li class="number3">
-									<span class="icon">&nbsp;</span><a href="/html/article_content/201010/5010509a555548939840a3103d3cea71.html" title="联系我们">联系我们</a>
-							</li>
-							<li class="number4">
-									<span class="icon">&nbsp;</span><a href="/html/article_content/201010/ac6f0b7c351c41058dc800ea0091e26c.html" title="退货政策">退货政策</a>
-							</li>
-							<li class="number5">
-									<span class="icon">&nbsp;</span><a href="/html/article_content/201010/50588403d9dd494c9035fa763e49e112.html" title="订单查询">订单查询</a>
-							</li>
-							<li class="number6">
-									<span class="icon">&nbsp;</span><a href="/html/article_content/201010/9102600e47b7401b843ad3722e1e9b70.html" title="购物流程">购物流程</a>
-							</li>
-							<li class="number7">
-									<span class="icon">&nbsp;</span><a href="/html/article_content/201010/82c2ffe3f0234a6ba2aed4727a75a19a.html" title="发票制度说明">发票制度说明</a>
-							</li>
-							<li class="number8">
-									<span class="icon">&nbsp;</span><a href="/html/article_content/201010/cb4b35cc2fd14ddbb20b49d7637fab2f.html" title="常见问题">常见问题</a>
-							</li>
-					</ul>
+					<ul id="productHistoryListDetail"></ul>
 				</div>
 				<div class="bottom"></div>
 			</div>
@@ -188,42 +185,155 @@ $().ready( function() {
 				<div class="middle">
 					<div class="path">
 						<a href="/" class="home"><span class="icon">&nbsp;</span>首页</a>>
-							<a href="/shop/article/list?id=402881882ba8455f012ba86db8560006">帮助中心</a>>
-					</div>
-					<div class="articleSearch">
-						<form id="articleSearchForm" action="/shop/article/search" method="get">
-							<input type="text" name="keyword" id="articleSearchKeyword" class="keyword" value="请输入关键词..." />
-							<input type="submit" class="searchButton" value="" />
-						</form>
+							<a href="/shop/product/list?id=c5910cfe886244c9b23bd0234d946c3e">厨房电器2</a>>
 					</div>
 				</div>
 				<div class="right"></div>
 			</div>
 			<div class="blank"></div>
-			<div class="articleContentDetail">
-				<div class="articleContentTop"></div>
-				<div class="articleContentMiddle">
-					<div class="title">订单查询</div>
-                    <div class="blank"></div>
-                    <div class="info">
-                    	<span class="createDate">日期：2010-10-14</span>
-                    	
-                    	点击：<span id="hits"></span> 次
-                    	<span class="fontSize">【<a id="changeBigFontSize" href="javascript:void(0);">大</a> <a id="changeNormalFontSize" href="javascript:void(0);">中</a> <a id="changeSmallFontSize" href="javascript:void(0);">小</a>】</span>
-                    </div>
-					<div id="articleContent" class="content">
-             			<p>登陆后，进入&ldquo;个人中心&rdquo;可查询到订单状态。</p>
-<p>1、未确认/未付款：订单尚未获得确认，正常工作时间内，最迟2小时可以获得确认，如非正常工作时间，需要等到上班时间确认。</p>
-<p><br />2、已确认/未付款：订单已获得确认，请按照确认后的总金额付款，付款完毕后可返回&ldquo;个人中心&rdquo;查看订单状态，银行汇款的用户需要提交汇款信息，内容为：交易流水号、汇款时间、 汇入行、汇入卡号、汇款金额共５项。系统自动保留订单期限为3天，超过3天未付款的订单，系统会自动将订单取消。</p>
-<p>&nbsp;<br />3、已付款/待发货：这时订单已在我们工作人员的处理流程中。</p>
-<p><br />4、已发货/待收货：您的货物已经发出，请您稍后注意查收，订单详细中可查到快递公司和快递单号。</p>
-<p>&nbsp;<br />5、交易成功：订单已成功完成交易，请对我们的商品进行评论，如收到产品有质量问题，请直接与售后部门联系。</p>
-             			<div class="blank"></div>
-             			<link href="/template/shop/css/pager.css" rel="stylesheet" type="text/css" />
-             			<!-- 分页未写 -->
-                    </div>
+			<div class="productTop">
+				<div class="productTopLeft">
+					<div class="productImage">
+	                		<a href="/upload/image/201606/8d5165e2067843f9bbd8e56a18ed1de8_big.jpg" class="tabContent zoom nonFirst">
+								<img src="/upload/image/201606/8d5165e2067843f9bbd8e56a18ed1de8_small.jpg" />
+							</a>
+	                		<a href="/upload/image/201606/d6e4c5de790f4079825a2a0a7d52ef78_big.jpg" class="tabContent zoom nonFirst">
+								<img src="/upload/image/201606/d6e4c5de790f4079825a2a0a7d52ef78_small.jpg" />
+							</a>
+	                		<a href="/upload/image/201606/cd6c09318378497e97939c9cb085e678_big.jpg" class="tabContent zoom nonFirst">
+								<img src="/upload/image/201606/cd6c09318378497e97939c9cb085e678_small.jpg" />
+							</a>
+						
+                	</div>
+					<div class="thumbnailProductImage">
+						<a class="prev browse" href="javascript:void(0);" hidefocus="true"></a>
+						<div class="scrollable">
+							<ul class="items productImageTab">
+									<li>
+										<img src="/upload/image/201606/8d5165e2067843f9bbd8e56a18ed1de8_thumbnail.jpg" />
+									</li>
+									<li>
+										<img src="/upload/image/201606/d6e4c5de790f4079825a2a0a7d52ef78_thumbnail.jpg" />
+									</li>
+									<li>
+										<img src="/upload/image/201606/cd6c09318378497e97939c9cb085e678_thumbnail.jpg" />
+									</li>
+							</ul>
+						</div>
+						<a class="next browse" href="javascript:void(0);" hidefocus="true"></a>
+					</div>
 				</div>
-				<div class="articleContentBottom"></div>
+				<div class="productTopRight">
+					<h1>
+						测试商品
+					</h1>
+					<ul class="productAttribute">
+	                    		<li>
+	                    			<strong>产品名称:</strong>
+	                    			222&nbsp;
+	                            </li>
+	                    		<li>
+	                    			<strong>品牌:</strong>
+	                    			222&nbsp;
+	                            </li>
+	                    		<li>
+	                    			<strong>型号:</strong>
+	                    			222&nbsp;
+	                            </li>
+	                    		<li>
+	                    			<strong>货号:</strong>
+	                    			222&nbsp;
+	                            </li>
+	                    		<li>
+	                    			<strong>颜色分类:</strong>
+	                    			22&nbsp;
+	                            </li>
+                        	<li><a href="#productAttribute" id="moreProductAttribute">更多参数>></a></li>
+					</ul>
+					<div class="blank"></div>
+					<div class="productInfo">
+						<div class="left"></div>
+						<div class="right">
+							<div class="top">
+								销 售 价：<span class="price">￥100.00</span>
+								市 场 价：<span class="marketPrice">￥80.00</span>
+							</div>
+							<div class="bottom">
+									重 量：<span class="weight">400.0 克</span>
+									积 分：<span>22</span>
+							</div>
+						</div>
+					</div>
+					<div class="blank"></div>
+					<div class="productNumber">
+						货号: <span>1</span>
+                        品牌: <span>SKG</span>
+					</div>
+					<div class="blank"></div>
+					<div class="productBuy">
+						<div class="buyCount">
+							我要购买: <input type="text" id="quantity" value="1" /> 件
+						</div>
+							<input type="button" class="addCartItemButton addCartItem {id: 'bf02a54922b64a999033cb3a6994b35a'}" value="" hidefocus="true" />
+                        <input type="button" class="addFavoriteButton addFavorite {id: 'bf02a54922b64a999033cb3a6994b35a'}" value="" hidefocus="true" />
+					</div>
+				</div>
+			</div>
+			<div class="blank"></div>
+			<div class="productBottom">
+				<ul class="productAttributeTab">
+					<li>
+						<a href="javascript:void(0);" class="current" hidefocus="true">商品介绍</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);" name="productAttribute" hidefocus="true">规格参数</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);" name="productDesign" hidefocus="true">设计</a>
+					</li>
+				</ul>
+				<div class="tabContent productDescription">
+					<p>这是商品的描述信息</p>
+				</div>
+				<div class="tabContent productAttribute">
+					<table class="productAttributeTable">
+								<tr>
+									<th>产品名称</th>
+									<td>
+										222&nbsp;
+									</td>
+								</tr>
+								<tr>
+									<th>品牌</th>
+									<td>
+										222&nbsp;
+									</td>
+								</tr>
+								<tr>
+									<th>型号</th>
+									<td>
+										222&nbsp;
+									</td>
+								</tr>
+								<tr>
+									<th>货号</th>
+									<td>
+										222&nbsp;
+									</td>
+								</tr>
+								<tr>
+									<th>颜色分类</th>
+									<td>
+										22&nbsp;
+									</td>
+								</tr>
+					</table>
+				</div>
+				<div class="tabContent productDesign">
+								<img src="/upload/image/201606/8d5165e2067843f9bbd8e56a18ed1de8_small.jpg" />
+								<img src="/upload/image/201606/d6e4c5de790f4079825a2a0a7d52ef78_small.jpg" />
+								<img src="/upload/image/201606/cd6c09318378497e97939c9cb085e678_small.jpg" />
+				</div>
 			</div>
 		</div>
 		<div class="blank"></div>

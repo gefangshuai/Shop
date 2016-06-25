@@ -1,5 +1,9 @@
 package com.jfinalshop.interceptor;
 
+import java.security.PublicKey;
+
+import javax.servlet.http.HttpServletRequest;
+
 import com.jfinal.aop.Interceptor;
 import com.jfinal.aop.Invocation;
 import com.jfinal.core.Controller;
@@ -8,10 +12,12 @@ import com.jfinalshop.model.Footer;
 import com.jfinalshop.model.FriendLink;
 import com.jfinalshop.model.Member;
 import com.jfinalshop.model.Navigation;
+import com.jfinalshop.service.HtmlService;
 import com.jfinalshop.util.SystemConfigUtil;
 
 public class NavigationInterceptor implements Interceptor{
-
+	public static HttpServletRequest request;
+	
 	@Override
 	public void intercept(Invocation ai) {
 		Controller c = ai.getController();
@@ -24,11 +30,11 @@ public class NavigationInterceptor implements Interceptor{
 		c.setAttr("pictureFriendLinkList", FriendLink.dao.getPictureFriendLinkList());
 		c.setAttr("textFriendLinkList", FriendLink.dao.getTextFriendLinkList());
 		c.setAttr("footer", Footer.dao.getAll());
-		
 		String id = c.getSessionAttr(Member.LOGIN_MEMBER_ID_SESSION_NAME);
 		if (StrKit.notBlank(id)) {
 			c.setAttr("loginMember", Member.dao.findById(id));
 		}
+		request = c.getRequest();
 		ai.invoke();
 	}
 
